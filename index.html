@@ -186,12 +186,22 @@ section p.sub{font-size:clamp(.8rem,1.3vw,.95rem);color:rgba(255,248,231,.45);li
 .form-row .form-group{flex:1;}
 .form-error{font-size:.68rem;color:var(--urgent);margin-top:.2rem;display:none;}
 .form-error.show{display:block;}
-.qty-display{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;}
-.qty-display label{font-size:.72rem;font-weight:600;color:rgba(255,248,231,.6);letter-spacing:.05em;text-transform:uppercase;}
-.qty-controls{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden;}
-.qty-btn{width:36px;height:36px;border:none;background:rgba(255,255,255,.05);color:var(--cream);font-size:1.1rem;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center;}
-.qty-btn:hover{background:rgba(212,160,23,.2);color:var(--gl);}
-.qty-val{width:44px;text-align:center;font-size:1rem;font-weight:700;border:none;background:transparent;color:var(--cream);outline:none;}
+
+/* ===== PACKAGE SELECTOR ===== */
+.pkg-label{font-size:.72rem;font-weight:600;color:rgba(255,248,231,.6);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.6rem;}
+.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:1rem;}
+.pkg-card{position:relative;background:rgba(255,255,255,.03);border:2px solid rgba(255,255,255,.08);border-radius:12px;padding:.7rem .4rem;text-align:center;cursor:pointer;transition:all .3s ease;overflow:hidden;}
+.pkg-card:hover{border-color:rgba(212,160,23,.2);background:rgba(212,160,23,.04);}
+.pkg-card.active{border-color:var(--gold);background:rgba(212,160,23,.08);box-shadow:0 0 20px rgba(212,160,23,.1);}
+.pkg-card .pkg-qty{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--cream);line-height:1;}
+.pkg-card.active .pkg-qty{color:var(--gl);}
+.pkg-card .pkg-unit{font-size:.58rem;color:rgba(255,248,231,.35);margin-top:.1rem;}
+.pkg-card .pkg-price{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gl);margin-top:.3rem;}
+.pkg-card .pkg-old{font-size:.65rem;color:rgba(255,248,231,.25);text-decoration:line-through;margin-top:.1rem;}
+.pkg-card .pkg-save{display:inline-block;background:var(--green);color:#fff;font-size:.55rem;font-weight:700;padding:.1rem .4rem;border-radius:4px;margin-top:.3rem;}
+/* Popular badge */
+.pkg-card.popular::before{content:'FAIDA ZAIDI';position:absolute;top:0;left:0;right:0;background:linear-gradient(90deg,var(--gold),var(--gd));color:#0A0A0A;font-size:.5rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.15rem 0;text-align:center;}
+
 .order-summary{background:rgba(212,160,23,.06);border:1px solid rgba(212,160,23,.12);border-radius:12px;padding:.9rem 1rem;margin-bottom:1.2rem;}
 .os-row{display:flex;justify-content:space-between;font-size:.82rem;padding:.25rem 0;}
 .os-row.total{border-top:1px solid rgba(212,160,23,.15);margin-top:.3rem;padding-top:.5rem;}
@@ -200,6 +210,7 @@ section p.sub{font-size:clamp(.8rem,1.3vw,.95rem);color:rgba(255,248,231,.45);li
 .os-label{color:rgba(255,248,231,.5);}
 .os-val{font-weight:600;}
 .os-del{color:var(--green);font-weight:700;}
+.os-save{color:var(--green);font-weight:700;font-size:.78rem;}
 .submit-btn{width:100%;padding:.9rem;border:none;border-radius:12px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:all .3s ease;}
 .submit-btn.wa{background:linear-gradient(135deg,var(--green),#1E8449);color:#fff;box-shadow:0 4px 25px rgba(39,174,96,.3);}
 .submit-btn.wa:hover{box-shadow:0 4px 40px rgba(39,174,96,.5);transform:translateY(-2px);}
@@ -223,7 +234,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.05);padding:
 footer .f-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--gl);margin-bottom:.4rem;}
 footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:480px;margin:0 auto;}
 
-/* FLOATING BUTTON — ANIMATED & PINNED */
+/* FLOATING BUTTON */
 .wa-float-wrap{position:fixed;bottom:1.2rem;right:1.2rem;z-index:99999;pointer-events:none;opacity:1;transition:opacity .4s ease,transform .4s ease;}
 .wa-float-wrap.hidden-float{opacity:0;transform:translateY(30px) scale(.8);pointer-events:none!important;}
 .wa-float-wrap.hidden-float *{pointer-events:none!important;}
@@ -259,51 +270,24 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
 
 @media(max-width:480px){
   .container{padding:0 .8rem;}
-  nav .nav-in{padding:0 .8rem;}
-  nav .logo{font-size:.95rem;}
-  nav .logo span{font-size:.65rem;}
-  nav .nav-wa{padding:.3rem .6rem;font-size:.62rem;}
-  nav .nav-wa span{display:none;}
-  .hero{padding:4.5rem 0 2.5rem;}
-  .hero h1{font-size:1.8rem;}
-  .hero .desc{font-size:.82rem;}
-  .hero .price-box{padding:.5rem .9rem;}
-  .hero .price-box .new{font-size:1.5rem;}
-  .hero .img-wrap img{max-width:220px;}
-  .hero .btns{flex-direction:column;width:100%;}
-  .hero .btns a{width:100%;justify-content:center;}
-  .hero .price-row{flex-direction:column;align-items:flex-start;gap:.6rem;}
-  .pain-grid{grid-template-columns:1fr 1fr;gap:.7rem;}
-  .pain-card{padding:.9rem .6rem;}.pain-card i{font-size:1.4rem;}.pain-card h3{font-size:.8rem;}.pain-card p{font-size:.7rem;}
+  nav .nav-in{padding:0 .8rem;}nav .logo{font-size:.95rem;}nav .logo span{font-size:.65rem;}nav .nav-wa{padding:.3rem .6rem;font-size:.62rem;}nav .nav-wa span{display:none;}
+  .hero{padding:4.5rem 0 2.5rem;}.hero h1{font-size:1.8rem;}.hero .desc{font-size:.82rem;}.hero .price-box{padding:.5rem .9rem;}.hero .price-box .new{font-size:1.5rem;}.hero .img-wrap img{max-width:220px;}.hero .btns{flex-direction:column;width:100%;}.hero .btns a{width:100%;justify-content:center;}.hero .price-row{flex-direction:column;align-items:flex-start;gap:.6rem;}
+  .pain-grid{grid-template-columns:1fr 1fr;gap:.7rem;}.pain-card{padding:.9rem .6rem;}.pain-card i{font-size:1.4rem;}.pain-card h3{font-size:.8rem;}.pain-card p{font-size:.7rem;}
   .ingr-grid{grid-template-columns:repeat(3,1fr);gap:.4rem;}.ingr-item{padding:.5rem .2rem;}.ingr-item .icon{font-size:1.1rem;}.ingr-item .name{font-size:.62rem;}.ingr-item .role{font-size:.55rem;}
-  .specs{grid-template-columns:1fr;}
-  .benefits-grid{grid-template-columns:1fr;}
+  .specs{grid-template-columns:1fr;}.benefits-grid{grid-template-columns:1fr;}
   .step{padding:.8rem 1rem;}.step-num{width:36px;height:36px;font-size:1rem;}
-  .ba-col img{min-height:180px;}
-  .test-grid{grid-template-columns:1fr;}
-  .order-form{padding:1.2rem;}
-  .form-row{flex-direction:column;gap:1rem;}
-  .wa-float{width:56px;height:56px;font-size:1.4rem;}
-  .wa-float-ring.r1,.wa-float-ring.r2,.wa-float-ring.r3{width:60px;height:60px;}
-  .wa-float-badge{width:20px;height:20px;font-size:.55rem;top:-3px;right:-3px;}
-  .wa-float-label{display:none;}
-  .wa-float-wrap{bottom:1rem;right:1rem;}
+  .ba-col img{min-height:180px;}.test-grid{grid-template-columns:1fr;}
+  .order-form{padding:1.2rem;}.form-row{flex-direction:column;gap:1rem;}
+  .pkg-grid{grid-template-columns:repeat(2,1fr);gap:.4rem;}
+  .pkg-card{padding:.6rem .3rem;}.pkg-card .pkg-qty{font-size:1.1rem;}.pkg-card .pkg-price{font-size:.85rem;}.pkg-card .pkg-old{font-size:.6rem;}
+  .wa-float{width:56px;height:56px;font-size:1.4rem;}.wa-float-ring.r1,.wa-float-ring.r2,.wa-float-ring.r3{width:60px;height:60px;}.wa-float-badge{width:20px;height:20px;font-size:.55rem;top:-3px;right:-3px;}.wa-float-label{display:none;}.wa-float-wrap{bottom:1rem;right:1rem;}
   .stock-banner span{font-size:.72rem;}
 }
 @media(min-width:481px) and (max-width:768px){
-  .hero .content{flex-direction:column;text-align:center;}
-  .hero .text{min-width:0;}
-  .hero .desc{margin:0 auto 1.2rem;}
-  .hero .price-row{justify-content:center;}
-  .hero .btns{justify-content:center;}
-  .hero .img-col{min-width:0;}
-  .product .prod-layout{flex-direction:column;}
-  .product .prod-img{min-width:0;}.product .prod-img img{max-width:280px;}
-  .ba-layout{flex-direction:column;}
-  .order-wrap{flex-direction:column-reverse;}
-  .order-side{position:static;min-width:0;}
-  nav .nav-price{display:none;}
-  section{padding:3rem 0;}
+  .hero .content{flex-direction:column;text-align:center;}.hero .text{min-width:0;}.hero .desc{margin:0 auto 1.2rem;}.hero .price-row{justify-content:center;}.hero .btns{justify-content:center;}.hero .img-col{min-width:0;}
+  .product .prod-layout{flex-direction:column;}.product .prod-img{min-width:0;}.product .prod-img img{max-width:280px;}
+  .ba-layout{flex-direction:column;}.order-wrap{flex-direction:column-reverse;}.order-side{position:static;min-width:0;}
+  nav .nav-price{display:none;}section{padding:3rem 0;}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 </style>
@@ -501,10 +485,10 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
     <div class="section-tag">Maswali</div>
     <h2>Maswali Yanayoulizwa Mara kwa Mara</h2>
     <div class="faq-list">
-      <div class="faq-item"><div class="faq-q">Je, Sumifun ina madhara yoyote?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Hapana. Sumifun imeundwa kwa viungo vya asili 100% — sumu ya nyuki, ginger, na menthol. Hauna kemikali kali na haina madhara yoyote kwa binadamu wakati inatumiwa kwa mujibu wa maagizo. Walakini, ikiwa una mzio wa bidhaa za nyuki, wasiliana na daktari wako kwanza.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Je, Sumifun ina madhara yoyote?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Hapana. Sumifun imeundwa kwa viungo vya asili 100% — sumu ya nyuki, ginger, na menthol. Hauna kemikali kali na haina madhara yoyote kwa binadamu wakati inatumiwa kwa mujibu wa maagizo.</div></div></div>
       <div class="faq-item"><div class="faq-q">Muda gani maumivu yanapungua?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Wateja wengi wanaripoti kupungua kwa maumivu ndani ya dakika 3-5 baada ya kupaka. Kwa matokeo ya kudumu, tumia kwa wiki 2-4 kwa mpango wa mara 2-3 kwa siku.</div></div></div>
       <div class="faq-item"><div class="faq-q">Je, naweza kutumia wakati wa ujauzito au kunyonyesha?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Tafadhali wasiliana na daktari wako kabla ya kutumia ikiwa ujauzito au unanyonyesha. Ingawa viungo ni vya asili, ni bora kuwa na ushauri wa kitaalamu.</div></div></div>
-      <div class="faq-item"><div class="faq-q">Delivery inachukua muda gani?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Delivery ni BURE popote ndani ya Tanzania. Kwa Dar es Salaam, order inafika ndani ya saa 24. Kwa mikoa mingine, saa 1-3 za kazi. Tunatumia kampuni za usafiri zinazojulikana.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Delivery inachukua muda gani?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Delivery ni BURE popote ndani ya Tanzania. Kwa Dar es Salaam, order inafika ndani ya saa 24. Kwa mikoa mingine, saa 1-3 za kazi.</div></div></div>
       <div class="faq-item"><div class="faq-q">Je, nalipia wakati wa kuagiza au wakati wa kupokea?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Malipo yanafanywa wakati wa ku Pokea bidhaa (COD — Cash on Delivery). Huna haja ya kulipa mtandaoni. Piga simu tu kuweka order, na lipa wakati bidhaa zikipo mikononi mwako.</div></div></div>
     </div>
   </div>
@@ -515,33 +499,56 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
   <div class="container">
     <div class="section-tag" style="justify-content:center;">Agiza Sasa</div>
     <h2 style="text-align:center;">Weka Order Yako Leo</h2>
-    <p class="sub" style="text-align:center;margin:0 auto 1.8rem;">Jaza fomu hii na order yako itatumwa moja kwa moja kwenye WhatsApp.</p>
+    <p class="sub" style="text-align:center;margin:0 auto 1.8rem;">Chagua kiasi cha bidhaa — kadri unavyonunua zaidi, ndivyo unaokoa zaidi!</p>
     <div class="order-wrap">
       <form class="order-form" id="orderForm" novalidate>
         <h3>Fomu ya Agizo</h3>
         <div class="of-sub">Jaza taarifa zako zote — tutakupigia simu kuthibitisha order.</div>
+
+        <!-- PACKAGE SELECTOR -->
+        <div class="pkg-label">Chagua Kiasi <span class="req">*</span></div>
+        <div class="pkg-grid" id="pkgGrid">
+          <div class="pkg-card active" data-qty="1" onclick="selectPkg(this)">
+            <div class="pkg-qty">1x</div>
+            <div class="pkg-unit">bidhaa</div>
+            <div class="pkg-price">77,000</div>
+            <div class="pkg-old">TSH</div>
+          </div>
+          <div class="pkg-card" data-qty="2" onclick="selectPkg(this)">
+            <div class="pkg-qty">2x</div>
+            <div class="pkg-unit">bidhaa</div>
+            <div class="pkg-price">99,000</div>
+            <div class="pkg-old">154,000 TSH</div>
+            <div class="pkg-save">UNAOKOA 55,000</div>
+          </div>
+          <div class="pkg-card popular" data-qty="3" onclick="selectPkg(this)">
+            <div class="pkg-qty">3x</div>
+            <div class="pkg-unit">bidhaa</div>
+            <div class="pkg-price">140,000</div>
+            <div class="pkg-old">231,000 TSH</div>
+            <div class="pkg-save">UNAOKOA 91,000</div>
+          </div>
+          <div class="pkg-card" data-qty="4" onclick="selectPkg(this)">
+            <div class="pkg-qty">4x</div>
+            <div class="pkg-unit">bidhaa</div>
+            <div class="pkg-price">220,000</div>
+            <div class="pkg-old">308,000 TSH</div>
+            <div class="pkg-save">UNAOKOA 88,000</div>
+          </div>
+        </div>
+
         <div class="form-group">
           <label>Jina Kamili <span class="req">*</span></label>
           <input type="text" id="fname" placeholder="Andika jina lako kamili" required>
           <div class="form-error" id="fnameErr">Tafadhali andika jina lako kamili</div>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Namba ya Simu <span class="req">*</span></label>
-            <input type="tel" id="fphone" placeholder="0768 799 110" required>
-            <div class="form-error" id="fphoneErr">Andika namba sahihi ya simu</div>
-          </div>
-          <div class="form-group">
-            <label>Idadi <span class="req">*</span></label>
-            <div class="qty-display">
-              <div class="qty-controls">
-                <button type="button" class="qty-btn" id="qtyMinus">-</button>
-                <input type="text" class="qty-val" id="qtyVal" value="1" readonly>
-                <button type="button" class="qty-btn" id="qtyPlus">+</button>
-              </div>
-            </div>
-          </div>
+
+        <div class="form-group">
+          <label>Namba ya Simu <span class="req">*</span></label>
+          <input type="tel" id="fphone" placeholder="0768 799 110" required>
+          <div class="form-error" id="fphoneErr">Andika namba sahihi ya simu</div>
         </div>
+
         <div class="form-group">
           <label>Mahali / Mkoa <span class="req">*</span></label>
           <select id="fregion" required>
@@ -550,19 +557,24 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
           </select>
           <div class="form-error" id="fregionErr">Tafadhali chagua mkoa wako</div>
         </div>
+
         <div class="form-group">
           <label>Anwani Kamili</label>
           <input type="text" id="faddress" placeholder="Street, eneo, au maagizo ya kupeleka">
         </div>
-        <div class="order-summary">
-          <div class="os-row"><span class="os-label">Bei ya kila bidhaa:</span><span class="os-val">77,000 TSH</span></div>
-          <div class="os-row"><span class="os-label">Idadi:</span><span class="os-val" id="osQty">x1</span></div>
+
+        <div class="order-summary" id="orderSummary">
+          <div class="os-row"><span class="os-label">Kiasi:</span><span class="os-val" id="osQty">1x bidhaa</span></div>
+          <div class="os-row"><span class="os-label">Bei ya kawaida:</span><span class="os-val" id="osOld">77,000 TSH</span></div>
+          <div class="os-row"><span class="os-label">Unaokoa:</span><span class="os-val os-save" id="osSave">0 TSH</span></div>
           <div class="os-row"><span class="os-label">Delivery:</span><span class="os-val os-del">BURE</span></div>
           <div class="os-row total"><span class="os-label">Jumla:</span><span class="os-val" id="osTotal">77,000 TSH</span></div>
         </div>
+
         <button type="submit" class="submit-btn wa" id="submitBtn"><i class="fab fa-whatsapp"></i> TUMA ORDER KWENYE WHATSAPP</button>
         <p class="form-disclaimer"><i class="fas fa-lock" style="margin-right:.3rem"></i>Maoni yako ni salama. Tutakupigia simu kuthibitisha order kabla ya kutuma.</p>
       </form>
+
       <div class="order-side">
         <img src="https://z-cdn-media.chatglm.cn/files/627813a6-91a1-4bc8-9aad-0d1c9acd07ee.png?auth_key=1877900094-dd5be4ab65db402eaa83b2ce388db3c7-0-d5f8148cfb976d5184c9ba4492daeb93" alt="Sumifun Product">
         <div class="side-phones">
@@ -585,7 +597,7 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
   </div>
 </footer>
 
-<!-- FLOATING BUTTON — ANIMATED & PINNED -->
+<!-- FLOATING BUTTON -->
 <div class="wa-float-wrap" id="waFloatWrap">
   <div class="wa-float-ring r1"></div>
   <div class="wa-float-ring r2"></div>
@@ -604,6 +616,29 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
 <div class="toast" id="toast"></div>
 
 <script>
+/* ===== PRICING DATA ===== */
+var PRICES={1:{price:77000,old:77000,save:0},2:{price:99000,old:154000,save:55000},3:{price:140000,old:231000,save:91000},4:{price:220000,old:308000,save:88000}};
+var qty=1;
+
+/* ===== PACKAGE SELECTOR ===== */
+function selectPkg(el){
+  document.querySelectorAll('.pkg-card').forEach(function(c){c.classList.remove('active');});
+  el.classList.add('active');
+  qty=parseInt(el.dataset.qty);
+  updateSummary();
+}
+
+/* ===== UPDATE SUMMARY ===== */
+function updateSummary(){
+  var p=PRICES[qty];
+  document.getElementById('osQty').textContent=qty+'x bidhaa';
+  document.getElementById('osOld').textContent=p.old.toLocaleString()+' TSH';
+  document.getElementById('osSave').textContent=p.save.toLocaleString()+' TSH';
+  document.getElementById('osTotal').textContent=p.price.toLocaleString()+' TSH';
+  /* Hide save row if no savings */
+  document.getElementById('osSave').parentElement.style.display=p.save>0?'flex':'none';
+}
+
 /* ===== HERO CANVAS ===== */
 var hcv=document.getElementById('heroCv'),hx=hcv.getContext('2d');
 var HW,HH;
@@ -612,7 +647,6 @@ hresize();addEventListener('resize',hresize);
 var hmx=0,hmy=0;
 document.addEventListener('mousemove',function(e){var r=hcv.getBoundingClientRect();hmx=(e.clientX-r.left)/r.width-.5;hmy=(e.clientY-r.top)/r.height-.5;});
 document.addEventListener('touchmove',function(e){if(e.touches[0]){var r=hcv.getBoundingClientRect();hmx=(e.touches[0].clientX-r.left)/r.width-.5;hmy=(e.touches[0].clientY-r.top)/r.height-.5;}},{passive:true});
-
 function heroAnim(t){
   hx.fillStyle='#060606';hx.fillRect(0,0,HW,HH);
   var p=1+Math.sin(t*.001)*.15,r=Math.max(1,Math.min(HW,HH)*.45*p);
@@ -651,12 +685,6 @@ document.querySelectorAll('section').forEach(function(s){obs.observe(s);});
 /* ===== FAQ ===== */
 document.querySelectorAll('.faq-q').forEach(function(q){q.onclick=function(){q.parentElement.classList.toggle('open');};});
 
-/* ===== QUANTITY ===== */
-var qty=1;
-function updateSummary(){document.getElementById('qtyVal').value=qty;document.getElementById('osQty').textContent='x'+qty;document.getElementById('osTotal').textContent=(qty*77000).toLocaleString()+' TSH';}
-document.getElementById('qtyMinus').onclick=function(){if(qty>1){qty--;updateSummary();}};
-document.getElementById('qtyPlus').onclick=function(){if(qty<20){qty++;updateSummary();}};
-
 /* ===== FORM ===== */
 document.getElementById('orderForm').onsubmit=function(e){
   e.preventDefault();
@@ -671,7 +699,8 @@ document.getElementById('orderForm').onsubmit=function(e){
   if(!phone||phone.replace(/\D/g,'').length<9){document.getElementById('fphoneErr').classList.add('show');document.getElementById('fphone').style.borderColor='var(--urgent)';valid=false;}
   if(!region){document.getElementById('fregionErr').classList.add('show');document.getElementById('fregion').style.borderColor='var(--urgent)';valid=false;}
   if(!valid){showToast('Tafadhali jaza sehemu zote zinazohitajika','err','fa-triangle-exclamation');return;}
-  var msg='🏥 *ORDER YA SUMIFUN BEE VENOM*\n\n👤 *Jina:* '+name+'\n📱 *Simu:* '+phone+'\n📍 *Mkoa:* '+region+(address?'\n🏠 *Anwani:* '+address:'')+'\n📦 *Idadi:* '+qty+' x bidhaa\n💰 *Jumla:* '+(qty*77000).toLocaleString()+' TSH\n🚚 *Delivery:* BURE\n\n---\nNdio, nataka kuagiza Sumifun Bee Venom Pain Relief Cream.';
+  var p=PRICES[qty];
+  var msg='🏥 *ORDER YA SUMIFUN BEE VENOM*\n\n👤 *Jina:* '+name+'\n📱 *Simu:* '+phone+'\n📍 *Mkoa:* '+region+(address?'\n🏠 *Anwani:* '+address:'')+'\n📦 *Kiasi:* '+qty+'x bidhaa\n💰 *Bei ya Kawaida:* '+p.old.toLocaleString()+' TSH\n🏷️ *Bei Yako:* '+p.price.toLocaleString()+' TSH'+(p.save>0?'\n✅ *Unaokoa:* '+p.save.toLocaleString()+' TSH':'')+'\n🚚 *Delivery:* BURE\n\n---\nNdio, nataka kuagiza Sumifun Bee Venom Pain Relief Cream.';
   var waUrl='https://wa.me/255768799110?text='+encodeURIComponent(msg);
   var btn=document.getElementById('submitBtn');
   btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Inatuma...';
