@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Sumifun Bee Venom — Dawa ya Kupaka Maumivu | 77,000 TSH</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--bg:#060606;--bg2:#0d0d0d;--bg3:#141414;--gold:#D4A017;--gl:#F5D060;--gd:#8B6914;--cream:#FFF8E7;--red:#C0392B;--green:#27AE60;--urgent:#FF3B30;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--cream);font-family:'Outfit',sans-serif;overflow-x:hidden;-webkit-text-size-adjust:100%;}
+::selection{background:var(--gold);color:#0A0A0A;}
+.container{max-width:1100px;margin:0 auto;padding:0 1rem;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,6,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,160,23,.1);padding:.6rem 0;transition:all .3s ease;}
+nav .nav-in{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 1rem;}
+nav .logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--gl);}
+nav .logo span{color:var(--cream);font-weight:400;font-size:.75rem;margin-left:.2rem;}
+nav .nav-cta{display:flex;align-items:center;gap:.6rem;}
+nav .nav-price{font-weight:800;font-size:.85rem;color:var(--gl);}
+nav .nav-price s{color:rgba(255,248,231,.3);font-size:.7rem;font-weight:400;margin-left:.2rem;}
+nav .nav-wa{display:inline-flex;align-items:center;gap:.3rem;background:var(--green);color:#fff;border:none;border-radius:30px;padding:.35rem .8rem;font-family:'Outfit',sans-serif;font-weight:700;font-size:.7rem;cursor:pointer;text-decoration:none;transition:all .3s ease;}
+nav .nav-wa:hover{background:#219a52;transform:scale(1.05);}
+nav .nav-wa i{font-size:.75rem;}
+.nav-sound{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--cream);font-size:.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;}
+.nav-sound:hover{border-color:var(--gold);color:var(--gl);}
+.nav-sound.mut{color:rgba(255,248,231,.3);}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;overflow:hidden;padding:5rem 0 3rem;}
+.hero canvas{position:absolute;inset:0;z-index:1;}
+.hero .vig{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(6,6,6,.8) 100%);}
+.hero .content{position:relative;z-index:10;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+.hero .text{flex:1;min-width:280px;}
+.hero .badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(39,174,96,.15);border:1px solid rgba(39,174,96,.3);border-radius:30px;padding:.25rem .7rem;font-size:.68rem;font-weight:600;color:var(--green);margin-bottom:1rem;}
+.hero .badge i{font-size:.65rem;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:.8rem;}
+.hero h1 .g{color:var(--gl);}
+.hero .desc{font-size:clamp(.82rem,1.5vw,1rem);font-weight:300;color:rgba(255,248,231,.55);line-height:1.7;margin-bottom:1.2rem;max-width:480px;}
+.hero .desc strong{color:var(--gl);font-weight:600;}
+.hero .price-row{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.hero .price-box{background:linear-gradient(135deg,rgba(212,160,23,.12),rgba(212,160,23,.04));border:2px solid rgba(212,160,23,.25);border-radius:14px;padding:.6rem 1.2rem;}
+.hero .price-box .old{font-size:.8rem;color:rgba(255,248,231,.3);text-decoration:line-through;}
+.hero .price-box .new{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--gl);line-height:1.1;}
+.hero .price-box .save{font-size:.65rem;color:var(--green);font-weight:700;margin-top:.1rem;}
+.hero .free-del{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--green);font-weight:600;}
+.hero .free-del i{font-size:.9rem;}
+.hero .free-del .fd-sm{font-size:.65rem;font-weight:400;color:rgba(255,248,231,.4);}
+.hero .btns{display:flex;gap:.6rem;flex-wrap:wrap;}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--green),#1E8449);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(.85rem,1.2vw,.95rem);padding:.85rem 1.6rem;border:none;border-radius:60px;cursor:pointer;text-decoration:none;transition:all .3s ease;box-shadow:0 4px 25px rgba(39,174,96,.3);}
+.btn-wa:hover{box-shadow:0 4px 40px rgba(39,174,96,.5);transform:translateY(-2px);}
+.btn-wa i{font-size:1rem;}
+.btn-order{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--gold),var(--gd));color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(.85rem,1.2vw,.95rem);padding:.85rem 1.6rem;border:none;border-radius:60px;cursor:pointer;text-decoration:none;transition:all .3s ease;box-shadow:0 4px 25px rgba(212,160,23,.3);}
+.btn-order:hover{box-shadow:0 4px 40px rgba(212,160,23,.5);transform:translateY(-2px);}
+.hero .img-col{flex:1;min-width:240px;display:flex;justify-content:center;}
+.hero .img-wrap{position:relative;}
+.hero .img-wrap img{width:100%;max-width:320px;height:auto;border-radius:16px;border:2px solid rgba(212,160,23,.2);box-shadow:0 0 60px rgba(212,160,23,.1),0 20px 60px rgba(0,0,0,.5);}
+.hero .img-wrap .pulse{position:absolute;top:-6px;right:-6px;background:var(--urgent);color:#fff;font-size:.6rem;font-weight:700;padding:.25rem .6rem;border-radius:20px;animation:bp 2s ease-in-out infinite;}
+@keyframes bp{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+
+/* STOCK BANNER */
+.stock-banner{background:linear-gradient(90deg,rgba(255,59,48,.15),rgba(255,59,48,.05),rgba(255,59,48,.15));border-top:1px solid rgba(255,59,48,.15);border-bottom:1px solid rgba(255,59,48,.15);padding:.6rem;text-align:center;}
+.stock-banner span{font-weight:700;color:var(--urgent);font-size:.8rem;letter-spacing:.05em;}
+.stock-banner .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--urgent);margin-right:.3rem;animation:bl 1s infinite;vertical-align:middle;}
+@keyframes bl{0%,100%{opacity:1;}50%{opacity:.2;}}
+
+/* SECTION COMMON */
+section{padding:clamp(2.5rem,5vw,4rem) 0;}
+.section-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;color:var(--gl);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.8rem;}
+.section-tag::before,.section-tag::after{content:'';width:18px;height:1px;background:rgba(212,160,23,.3);}
+section h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:900;line-height:1.2;margin-bottom:.8rem;}
+section p.sub{font-size:clamp(.8rem,1.3vw,.95rem);color:rgba(255,248,231,.45);line-height:1.7;max-width:580px;margin-bottom:1.8rem;}
+
+/* PROBLEM */
+.problem{background:var(--bg2);}
+.problem .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+.pain-card{background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.15);border-radius:14px;padding:1.2rem;text-align:center;transition:all .3s ease;}
+.pain-card:hover{border-color:rgba(192,57,43,.3);transform:translateY(-3px);}
+.pain-card i{font-size:1.8rem;color:#E74C3C;margin-bottom:.6rem;display:block;}
+.pain-card h3{font-size:.92rem;font-weight:700;margin-bottom:.3rem;}
+.pain-card p{font-size:.78rem;color:rgba(255,248,231,.4);line-height:1.5;}
+.problem-img-wrap{margin-top:2rem;border-radius:16px;overflow:hidden;border:2px solid rgba(192,57,43,.15);}
+.problem-img-wrap img{width:100%;height:auto;display:block;}
+
+/* PRODUCT */
+.product{background:var(--bg);}
+.product .prod-layout{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+.product .prod-img{flex:1;min-width:240px;}
+.product .prod-img img{width:100%;max-width:360px;border-radius:16px;border:2px solid rgba(212,160,23,.15);box-shadow:0 0 50px rgba(212,160,23,.08),0 20px 60px rgba(0,0,0,.5);}
+.product .prod-info{flex:1;min-width:260px;}
+.prod-badge-row{display:flex;gap:.4rem;margin-bottom:1rem;flex-wrap:wrap;}
+.prod-badge{background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.2);border-radius:30px;padding:.25rem .7rem;font-size:.68rem;color:var(--gl);font-weight:600;}
+.ingr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1.2rem 0;}
+.ingr-item{text-align:center;padding:.7rem .4rem;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:10px;}
+.ingr-item .icon{font-size:1.3rem;margin-bottom:.3rem;display:block;}
+.ingr-item .name{font-size:.7rem;font-weight:600;margin-bottom:.1rem;}
+.ingr-item .role{font-size:.62rem;color:rgba(255,248,231,.35);}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1rem;}
+.spec{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:rgba(255,248,231,.5);}
+.spec i{color:var(--gl);font-size:.7rem;width:14px;text-align:center;}
+.prod-usage-img{margin-top:1.5rem;border-radius:16px;overflow:hidden;border:2px solid rgba(212,160,23,.12);}
+.prod-usage-img img{width:100%;height:auto;display:block;}
+
+/* BENEFITS */
+.benefits{background:var(--bg2);}
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+.ben-card{background:rgba(212,160,23,.04);border:1px solid rgba(212,160,23,.1);border-radius:14px;padding:1.2rem;transition:all .3s ease;position:relative;overflow:hidden;}
+.ben-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gd));opacity:0;transition:opacity .3s ease;}
+.ben-card:hover{border-color:rgba(212,160,23,.25);transform:translateY(-3px);}
+.ben-card:hover::before{opacity:1;}
+.ben-card .num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:rgba(212,160,23,.15);margin-bottom:.2rem;}
+.ben-card i{font-size:1.3rem;color:var(--gl);margin-bottom:.5rem;display:block;}
+.ben-card h3{font-size:.92rem;font-weight:700;margin-bottom:.3rem;}
+.ben-card p{font-size:.78rem;color:rgba(255,248,231,.4);line-height:1.6;}
+
+/* HOW TO USE */
+.howto{background:var(--bg);}
+.steps{display:flex;flex-direction:column;gap:.8rem;max-width:680px;}
+.step{display:flex;align-items:flex-start;gap:1rem;background:var(--bg3);border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:1rem 1.2rem;transition:all .3s ease;}
+.step:hover{border-color:rgba(212,160,23,.15);}
+.step-num{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gd));color:#0A0A0A;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step h3{font-size:.92rem;font-weight:700;margin-bottom:.2rem;}
+.step p{font-size:.82rem;color:rgba(255,248,231,.45);line-height:1.6;}
+.step p strong{color:var(--gl);font-weight:700;}
+.step .warn{display:inline-flex;align-items:center;gap:.3rem;background:rgba(39,174,96,.1);border:1px solid rgba(39,174,96,.2);border-radius:8px;padding:.2rem .5rem;font-size:.68rem;color:var(--green);font-weight:600;margin-top:.4rem;}
+.lifestyle-img{margin-top:2rem;border-radius:16px;overflow:hidden;border:2px solid rgba(212,160,23,.1);}
+.lifestyle-img img{width:100%;height:auto;display:block;}
+
+/* BEFORE/AFTER */
+.beforeafter{background:var(--bg2);}
+.ba-layout{display:flex;gap:1.5rem;align-items:stretch;flex-wrap:wrap;}
+.ba-col{flex:1;min-width:260px;border-radius:16px;overflow:hidden;border:2px solid;position:relative;}
+.ba-col.before-col{border-color:rgba(192,57,43,.2);}
+.ba-col.after-col{border-color:rgba(39,174,96,.2);}
+.ba-col img{width:100%;height:100%;object-fit:cover;display:block;min-height:250px;}
+.ba-label{position:absolute;top:.8rem;left:.8rem;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:8px;padding:.3rem .8rem;font-weight:700;font-size:.8rem;}
+.ba-col.before-col .ba-label{color:#E74C3C;border:1px solid rgba(192,57,43,.3);}
+.ba-col.after-col .ba-label{color:#2ECC71;border:1px solid rgba(39,174,96,.3);}
+.ba-icon{position:absolute;top:.8rem;right:.8rem;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.ba-col.before-col .ba-icon{background:rgba(192,57,43,.2);color:#E74C3C;}
+.ba-col.after-col .ba-icon{background:rgba(39,174,96,.2);color:#2ECC71;}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--bg);}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
+.test-card{background:var(--bg3);border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:1.2rem;}
+.test-stars{color:var(--gl);font-size:.75rem;margin-bottom:.6rem;display:flex;gap:.12rem;}
+.test-text{font-size:.84rem;color:rgba(255,248,231,.6);line-height:1.7;margin-bottom:.8rem;font-style:italic;}
+.test-author{display:flex;align-items:center;gap:.6rem;}
+.test-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gd));display:flex;align-items:center;justify-content:center;font-weight:800;color:#0A0A0A;font-size:.8rem;}
+.test-name{font-weight:700;font-size:.82rem;}
+.test-loc{font-size:.68rem;color:rgba(255,248,231,.3);}
+
+/* FAQ */
+.faq{background:var(--bg2);}
+.faq-list{max-width:680px;display:flex;flex-direction:column;gap:.5rem;}
+.faq-item{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:border-color .3s ease;}
+.faq-item.open{border-color:rgba(212,160,23,.2);}
+.faq-q{padding:.9rem 1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:.88rem;transition:color .3s ease;}
+.faq-q:hover{color:var(--gl);}
+.faq-q i{font-size:.65rem;transition:transform .3s ease;color:rgba(255,248,231,.3);}
+.faq-item.open .faq-q i{transform:rotate(180deg);color:var(--gl);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-a-inner{padding:0 1rem .9rem;font-size:.82rem;color:rgba(255,248,231,.45);line-height:1.7;}
+.faq-item.open .faq-a{max-height:300px;}
+
+/* ORDER FORM */
+.order-section{background:linear-gradient(180deg,var(--bg),var(--bg2));position:relative;}
+.order-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gd),var(--gl),var(--gd));}
+.order-wrap{display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;}
+.order-form{flex:1;min-width:300px;background:var(--bg3);border:1px solid rgba(212,160,23,.15);border-radius:18px;padding:1.5rem;}
+.order-form h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:.2rem;}
+.order-form .of-sub{font-size:.82rem;color:rgba(255,248,231,.4);margin-bottom:1.2rem;}
+.form-group{margin-bottom:1rem;}
+.form-group label{display:block;font-size:.72rem;font-weight:600;color:rgba(255,248,231,.6);margin-bottom:.3rem;letter-spacing:.05em;text-transform:uppercase;}
+.form-group label .req{color:var(--urgent);}
+.form-group input,.form-group select{width:100%;padding:.7rem .9rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:var(--cream);font-family:'Outfit',sans-serif;font-size:.9rem;transition:all .3s ease;outline:none;}
+.form-group input::placeholder{color:rgba(255,248,231,.2);}
+.form-group input:focus,.form-group select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,.1);}
+.form-group select{cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5D060' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;}
+.form-group select option{background:#1a1a1a;color:var(--cream);}
+.form-row{display:flex;gap:.7rem;}
+.form-row .form-group{flex:1;}
+.form-error{font-size:.68rem;color:var(--urgent);margin-top:.2rem;display:none;}
+.form-error.show{display:block;}
+.qty-display{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;}
+.qty-display label{font-size:.72rem;font-weight:600;color:rgba(255,248,231,.6);letter-spacing:.05em;text-transform:uppercase;}
+.qty-controls{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden;}
+.qty-btn{width:36px;height:36px;border:none;background:rgba(255,255,255,.05);color:var(--cream);font-size:1.1rem;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center;}
+.qty-btn:hover{background:rgba(212,160,23,.2);color:var(--gl);}
+.qty-val{width:44px;text-align:center;font-size:1rem;font-weight:700;border:none;background:transparent;color:var(--cream);outline:none;}
+.order-summary{background:rgba(212,160,23,.06);border:1px solid rgba(212,160,23,.12);border-radius:12px;padding:.9rem 1rem;margin-bottom:1.2rem;}
+.os-row{display:flex;justify-content:space-between;font-size:.82rem;padding:.25rem 0;}
+.os-row.total{border-top:1px solid rgba(212,160,23,.15);margin-top:.3rem;padding-top:.5rem;}
+.os-row.total .os-label{font-weight:700;font-size:.92rem;}
+.os-row.total .os-val{font-family:'Playfair Display',serif;font-weight:900;font-size:1.2rem;color:var(--gl);}
+.os-label{color:rgba(255,248,231,.5);}
+.os-val{font-weight:600;}
+.os-del{color:var(--green);font-weight:700;}
+.submit-btn{width:100%;padding:.9rem;border:none;border-radius:12px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:all .3s ease;}
+.submit-btn.wa{background:linear-gradient(135deg,var(--green),#1E8449);color:#fff;box-shadow:0 4px 25px rgba(39,174,96,.3);}
+.submit-btn.wa:hover{box-shadow:0 4px 40px rgba(39,174,96,.5);transform:translateY(-2px);}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.form-disclaimer{font-size:.65rem;color:rgba(255,248,231,.2);margin-top:.8rem;line-height:1.5;text-align:center;}
+
+/* Order sidebar */
+.order-side{flex:.8;min-width:260px;position:sticky;top:5rem;}
+.order-side img{width:100%;border-radius:16px;border:2px solid rgba(212,160,23,.15);box-shadow:0 0 40px rgba(212,160,23,.08);margin-bottom:1rem;}
+.side-phones{display:flex;flex-direction:column;gap:.5rem;}
+.side-phone{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:.6rem .9rem;text-decoration:none;color:var(--cream);transition:all .3s ease;}
+.side-phone:hover{border-color:rgba(212,160,23,.2);background:rgba(212,160,23,.05);}
+.side-phone i{font-size:1rem;color:var(--gl);}
+.side-phone .sp-num{font-weight:700;font-size:.85rem;}
+.side-phone .sp-label{font-size:.62rem;color:rgba(255,248,231,.35);}
+.side-trust{display:flex;align-items:center;gap:.4rem;margin-top:.8rem;font-size:.7rem;color:rgba(255,248,231,.3);}
+.side-trust i{color:var(--green);}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.05);padding:2.5rem 0;text-align:center;}
+footer .f-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--gl);margin-bottom:.4rem;}
+footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:480px;margin:0 auto;}
+
+/* FLOATING BUTTON — ANIMATED & PINNED */
+.wa-float-wrap{position:fixed;bottom:1.2rem;right:1.2rem;z-index:99999;pointer-events:none;opacity:1;transition:opacity .4s ease,transform .4s ease;}
+.wa-float-wrap.hidden-float{opacity:0;transform:translateY(30px) scale(.8);pointer-events:none!important;}
+.wa-float-wrap.hidden-float *{pointer-events:none!important;}
+.wa-float-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;}
+.wa-float-ring.r1{width:68px;height:68px;border:2px solid rgba(39,174,96,.35);animation:floatRing1 2.5s ease-out infinite;}
+.wa-float-ring.r2{width:68px;height:68px;border:2px solid rgba(39,174,96,.25);animation:floatRing2 2.5s ease-out infinite .8s;}
+.wa-float-ring.r3{width:68px;height:68px;border:2px solid rgba(39,174,96,.15);animation:floatRing2 2.5s ease-out infinite 1.6s;}
+@keyframes floatRing1{0%{transform:translate(-50%,-50%) scale(1);opacity:1;}100%{transform:translate(-50%,-50%) scale(2.2);opacity:0;}}
+@keyframes floatRing2{0%{transform:translate(-50%,-50%) scale(1);opacity:1;}100%{transform:translate(-50%,-50%) scale(2.5);opacity:0;}}
+.wa-float{position:relative;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#2ECC71,#1E8449);color:#fff;font-size:1.7rem;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;pointer-events:auto;animation:floatBounce 3s ease-in-out infinite,floatBreath 4s ease-in-out infinite;box-shadow:0 8px 35px rgba(39,174,96,.5),0 0 0 0 rgba(39,174,96,.4);transition:box-shadow .3s ease;overflow:visible;}
+.wa-float:hover{box-shadow:0 8px 50px rgba(39,174,96,.7),0 0 0 8px rgba(39,174,96,.1)!important;animation-play-state:paused;transform:scale(1.15)!important;}
+@keyframes floatBounce{0%,100%{transform:translateY(0);}15%{transform:translateY(-8px);}30%{transform:translateY(-3px);}45%{transform:translateY(-10px);}60%{transform:translateY(-4px);}75%{transform:translateY(-7px);}90%{transform:translateY(-2px);}}
+@keyframes floatBreath{0%,100%{box-shadow:0 8px 35px rgba(39,174,96,.5),0 0 0 0 rgba(39,174,96,.4);}50%{box-shadow:0 8px 35px rgba(39,174,96,.5),0 0 0 16px rgba(39,174,96,0);}}
+.wa-float i{animation:floatIconWiggle 2s ease-in-out infinite;position:relative;z-index:2;}
+@keyframes floatIconWiggle{0%,100%{transform:rotate(0deg);}10%{transform:rotate(-8deg);}20%{transform:rotate(8deg);}30%{transform:rotate(-5deg);}40%{transform:rotate(5deg);}50%{transform:rotate(0deg);}}
+.wa-float .ripple-ring{position:absolute;top:50%;left:50%;border-radius:50%;background:rgba(255,255,255,.35);transform:translate(-50%,-50%) scale(0);animation:floatClickRipple .7s ease-out forwards;pointer-events:none;z-index:1;}
+@keyframes floatClickRipple{0%{width:0;height:0;opacity:1;transform:translate(-50%,-50%) scale(0);}100%{width:140px;height:140px;opacity:0;transform:translate(-50%,-50%) scale(1);}}
+.wa-float-badge{position:absolute;top:-4px;right:-4px;width:22px;height:22px;border-radius:50%;background:var(--urgent);color:#fff;font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:3;animation:badgePop .4s cubic-bezier(.175,.885,.32,1.275) .5s both,badgePulse 2s ease-in-out 1s infinite;border:2px solid var(--bg);pointer-events:none;}
+@keyframes badgePop{0%{transform:scale(0);}100%{transform:scale(1);}}
+@keyframes badgePulse{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+.wa-float-label{position:absolute;right:76px;top:50%;transform:translateY(-50%) translateX(10px);background:linear-gradient(135deg,#2ECC71,#1E8449);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:.75rem;padding:.55rem 1rem;border-radius:10px;white-space:nowrap;box-shadow:0 6px 25px rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:all .4s cubic-bezier(.175,.885,.32,1.275);z-index:4;}
+.wa-float-label::after{content:'';position:absolute;right:-7px;top:50%;transform:translateY(-50%);border:7px solid transparent;border-left-color:#1E8449;}
+.wa-float-label .label-line1{font-size:.82rem;font-weight:800;display:block;}
+.wa-float-label .label-line2{font-size:.62rem;font-weight:400;opacity:.85;display:block;margin-top:.1rem;}
+.wa-float-wrap .wa-float-label.show-label{opacity:1;transform:translateY(-50%) translateX(0);}
+.wa-float:hover ~ .wa-float-label,.wa-float-wrap:hover .wa-float-label{opacity:1!important;transform:translateY(-50%) translateX(0)!important;}
+
+/* TOAST */
+.toast{position:fixed;top:4.5rem;left:50%;transform:translateX(-50%) translateY(-20px);z-index:100000;background:rgba(30,30,30,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);color:var(--cream);padding:.6rem 1.2rem;border-radius:10px;font-weight:600;font-size:.82rem;opacity:0;transition:all .4s ease;pointer-events:none;display:flex;align-items:center;gap:.4rem;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.5);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast.ok{border-color:rgba(39,174,96,.3);}.toast.ok i{color:var(--green);}
+.toast.err{border-color:rgba(192,57,43,.3);}.toast.err i{color:var(--red);}
+
+@media(max-width:480px){
+  .container{padding:0 .8rem;}
+  nav .nav-in{padding:0 .8rem;}
+  nav .logo{font-size:.95rem;}
+  nav .logo span{font-size:.65rem;}
+  nav .nav-wa{padding:.3rem .6rem;font-size:.62rem;}
+  nav .nav-wa span{display:none;}
+  .hero{padding:4.5rem 0 2.5rem;}
+  .hero h1{font-size:1.8rem;}
+  .hero .desc{font-size:.82rem;}
+  .hero .price-box{padding:.5rem .9rem;}
+  .hero .price-box .new{font-size:1.5rem;}
+  .hero .img-wrap img{max-width:220px;}
+  .hero .btns{flex-direction:column;width:100%;}
+  .hero .btns a{width:100%;justify-content:center;}
+  .hero .price-row{flex-direction:column;align-items:flex-start;gap:.6rem;}
+  .pain-grid{grid-template-columns:1fr 1fr;gap:.7rem;}
+  .pain-card{padding:.9rem .6rem;}.pain-card i{font-size:1.4rem;}.pain-card h3{font-size:.8rem;}.pain-card p{font-size:.7rem;}
+  .ingr-grid{grid-template-columns:repeat(3,1fr);gap:.4rem;}.ingr-item{padding:.5rem .2rem;}.ingr-item .icon{font-size:1.1rem;}.ingr-item .name{font-size:.62rem;}.ingr-item .role{font-size:.55rem;}
+  .specs{grid-template-columns:1fr;}
+  .benefits-grid{grid-template-columns:1fr;}
+  .step{padding:.8rem 1rem;}.step-num{width:36px;height:36px;font-size:1rem;}
+  .ba-col img{min-height:180px;}
+  .test-grid{grid-template-columns:1fr;}
+  .order-form{padding:1.2rem;}
+  .form-row{flex-direction:column;gap:1rem;}
+  .wa-float{width:56px;height:56px;font-size:1.4rem;}
+  .wa-float-ring.r1,.wa-float-ring.r2,.wa-float-ring.r3{width:60px;height:60px;}
+  .wa-float-badge{width:20px;height:20px;font-size:.55rem;top:-3px;right:-3px;}
+  .wa-float-label{display:none;}
+  .wa-float-wrap{bottom:1rem;right:1rem;}
+  .stock-banner span{font-size:.72rem;}
+}
+@media(min-width:481px) and (max-width:768px){
+  .hero .content{flex-direction:column;text-align:center;}
+  .hero .text{min-width:0;}
+  .hero .desc{margin:0 auto 1.2rem;}
+  .hero .price-row{justify-content:center;}
+  .hero .btns{justify-content:center;}
+  .hero .img-col{min-width:0;}
+  .product .prod-layout{flex-direction:column;}
+  .product .prod-img{min-width:0;}.product .prod-img img{max-width:280px;}
+  .ba-layout{flex-direction:column;}
+  .order-wrap{flex-direction:column-reverse;}
+  .order-side{position:static;min-width:0;}
+  nav .nav-price{display:none;}
+  section{padding:3rem 0;}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <div class="logo">SUMIFUN <span>Bee Venom</span></div>
+    <div class="nav-cta">
+      <div class="nav-price">77,000 TSH <s>120,000</s></div>
+      <a href="https://wa.me/255768799110?text=Nimeona%20ad%20ya%20Sumifun%20Bee%20Venom%20naomba%20kuagiza" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> <span>Piga Simu</span></a>
+      <button class="nav-sound mut" id="navSnd" aria-label="Sauti"><i class="fas fa-volume-xmark"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="heroCv"></canvas>
+  <div class="vig"></div>
+  <div class="content container">
+    <div class="text">
+      <div class="badge"><i class="fas fa-shield-halved"></i> Salama 100% — Asili Kabisa</div>
+      <h1><span class="g">Sumifun Bee Venom</span><br>Pain Relief Cream</h1>
+      <p class="desc">Dawa ya kiasili ya kupaka inayotengenezwa kwa <strong>sumu ya nyuki</strong> na <strong>viungo vya mitishamba</strong> — huondoa na kutibu kwa haraka sana maumivu ya mgongo, magoti, viungo, na misuri <strong>ndani ya dakika 3-5</strong>.</p>
+      <div class="price-row">
+        <div class="price-box">
+          <div class="old">Bei ya Kawaida: 120,000 TSH</div>
+          <div class="new">77,000 TSH</div>
+          <div class="save">Unaokoa 43,000 TSH (36%)</div>
+        </div>
+        <div class="free-del"><i class="fas fa-truck-fast"></i><div><div>Delivery BURE</div><div class="fd-sm">Popote ndani ya Tanzania</div></div></div>
+      </div>
+      <div class="btns">
+        <a href="#order" class="btn-order"><i class="fas fa-shopping-bag"></i> Weka Order Sasa</a>
+        <a href="https://wa.me/255768799110?text=Nimeona%20ad%20ya%20Sumifun%20Bee%20Venom%20naomba%20kuagiza" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Piga Simu</a>
+      </div>
+    </div>
+    <div class="img-col">
+      <div class="img-wrap">
+        <img src="https://z-cdn-media.chatglm.cn/files/627813a6-91a1-4bc8-9aad-0d1c9acd07ee.png?auth_key=1877900094-dd5be4ab65db402eaa83b2ce388db3c7-0-d5f8148cfb976d5184c9ba4492daeb93" alt="Sumifun Bee Venom Pain Relief Cream">
+        <div class="pulse">ZIPO CHACHE!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STOCK BANNER -->
+<div class="stock-banner"><span class="dot"></span><span><i class="fas fa-exclamation-triangle" style="margin-right:.3rem"></i> BIDHAA ZIPO CHACHE SANA — WEKA ORDER YAKO SASA KABLA HAIJAMALIZIKA!</span></div>
+
+<!-- PROBLEM -->
+<section class="problem" id="maumivu">
+  <div class="container">
+    <div class="section-tag">Tatua</div>
+    <h2>Unasumbuliwa na Maumivu ya Viungo?</h2>
+    <p class="sub">Mamilioni ya Watanzania wanaumia kimya — usikue miongoni mwao. Sumifun Bee Venom imeundwa mahsusi kwa ajili yako.</p>
+    <div class="pain-grid">
+      <div class="pain-card"><i class="fas fa-bone"></i><h3>Maumivu ya Mgongo</h3><p>Kutoka chini hadi juu, kukakamaa, na kutoanza kwa uchungu hasa asubuhi.</p></div>
+      <div class="pain-card"><i class="fas fa-person-walking"></i><h3>Maumivu ya Magoti</h3><p>Kuganda, kushindwa kuinama, na maumivu wakati wa kutembea au kupanda ngazi.</p></div>
+      <div class="pain-card"><i class="fas fa-hand-holding-medical"></i><h3>Ugumu wa Viungo</h3><p>Mikono, mabegani, miguuni — viungo vikali na hakuna ustawi wa kawaida.</p></div>
+      <div class="pain-card"><i class="fas fa-fire"></i><h3>Misuri Kuwaka Moto</h3><p>Kuhisi joto na kuwaka katika misuli — maumivu yanayoendelea kuwa makali.</p></div>
+    </div>
+    <div class="problem-img-wrap">
+      <img src="https://z-cdn-media.chatglm.cn/files/548efd68-3edc-4041-9bda-71ca2fb0fcad.png?auth_key=1877912342-c29971116fcc4d23ae0fbbcbf3704462-0-a506260ff7cf41435ebd3a2dcea07913" alt="Mtu anayeumia shingo">
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="product" id="bidhaa">
+  <div class="container">
+    <div class="section-tag">Bidhaa</div>
+    <h2>Sumifun Bee Venom Pain Relief Cream</h2>
+    <div class="prod-layout">
+      <div class="prod-img">
+        <img src="https://z-cdn-media.chatglm.cn/files/d8e88700-a081-4655-943b-7699a74b8297.png?auth_key=1877900094-86e8d9863bf341eab2175f25180677f3-0-dbb8dc9ed7febd5b7c949ffdc4ef42e4" alt="Sumifun packaging">
+      </div>
+      <div class="prod-info">
+        <div class="prod-badge-row">
+          <span class="prod-badge">55g Net</span>
+          <span class="prod-badge">Sumu ya Nyuki</span>
+          <span class="prod-badge">Mitishamba</span>
+          <span class="prod-badge">Kupaka tu</span>
+          <span class="prod-badge">Harmless</span>
+        </div>
+        <p class="sub" style="margin-bottom:.8rem;">Fomula ya kipekee inayochanganya nguvu ya sumu ya nyuki ya asili na viungo vya mitishamba vyenye tiba ili kuondoa na kutibu maumivu yote haraka na salama.</p>
+        <div class="ingr-grid">
+          <div class="ingr-item"><span class="icon">🐝</span><div class="name">Sumu ya Nyuki</div><div class="role">Kulenga chanzo cha maumivu</div></div>
+          <div class="ingr-item"><span class="icon">🫚</span><div class="name">Ginger</div><div class="role">Kupunguza uvimbe</div></div>
+          <div class="ingr-item"><span class="icon">🌿</span><div class="name">Menthol</div><div class="role">Kupoza na kulevya</div></div>
+        </div>
+        <div class="specs">
+          <div class="spec"><i class="fas fa-check"></i> Haina madhara yoyote</div>
+          <div class="spec"><i class="fas fa-check"></i> 100% asili</div>
+          <div class="spec"><i class="fas fa-check"></i> Imejaribiwa kliniki</div>
+          <div class="spec"><i class="fas fa-check"></i> Rahisi kutumia</div>
+          <div class="spec"><i class="fas fa-check"></i> Hapana uchafu</div>
+          <div class="spec"><i class="fas fa-check"></i> Matokeo ya haraka</div>
+        </div>
+        <div class="prod-usage-img">
+          <img src="https://z-cdn-media.chatglm.cn/files/99840a80-784d-48c2-bdb4-bedab1b571b9.png?auth_key=1877912342-4b2a46b7ac8345d79986cece3cc01929-0-3e2578621989364af7be1c84bd308517" alt="Kutumia Sumifun Bee Venom Cream">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="manufaa">
+  <div class="container">
+    <div class="section-tag">Manufaa</div>
+    <h2>Kwa Nini Sumifun Inafanya Kazi?</h2>
+    <p class="sub">Sio dawa ya kawaida — Sumifun inatumia sayansi ya asili kulenga tatizo moja kwa moja.</p>
+    <div class="benefits-grid">
+      <div class="ben-card"><div class="num">01</div><i class="fas fa-bolt"></i><h3>Inaanza Haraka</h3><p>Sumu ya nyuki inachukua ndani haraka hadi chanzo cha maumivu — matokeo yanahisi ndani ya dakika 3-5.</p></div>
+      <div class="ben-card"><div class="num">02</div><i class="fas fa-leaf"></i><h3>Asili 100%</h3><p>Hakuna kemikali kali — sumu ya nyuki bora na viungo vya mitishamba vyenye nguvu vya tiba.</p></div>
+      <div class="ben-card"><div class="num">03</div><i class="fas fa-shield-halved"></i><h3>Salama Kabisa</h3><p>Haina madhara yoyote kwa binadamu. Imejaribiwa na kupitishwa na wataalamu wa afya.</p></div>
+      <div class="ben-card"><div class="num">04</div><i class="fas fa-hand-sparkles"></i><h3>Rahisi Kutumia</h3><p>Paka tu kwenye sehemu inayouma — hapana uchafu, hapona mpangilio mgumu, inabebwa popote.</p></div>
+      <div class="ben-card"><div class="num">05</div><i class="fas fa-repeat"></i><h3>Matokeo ya Durable</h3><p>Na matumizi ya taratibu, maumivu yanapungua na kuisha kabisa — si tu kupunguza kwa muda.</p></div>
+      <div class="ben-card"><div class="num">06</div><i class="fas fa-money-bill-wave"></i><h3>Bevu ya Bei</h3><p>Kwa 77,000 TSH tu — pamoja na delivery bure popote Tanzania, hii ni fursa isiyo na mbadala.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="howto" id="matumizi">
+  <div class="container">
+    <div class="section-tag">Matumizi</div>
+    <h2>Jinsi ya Kutumia — Rahisi Sana</h2>
+    <p class="sub">Hatua 4 tu na maumivu yanaondoka. Hakuna ujuzi maalum unahitajika.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div><h3>Safisha Eneo</h3><p>Nawa kwa sabuni na uache kauka. Eneo lazima liwe safi ili krimu ichukue vizuri.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div><h3>Paka Krimu</h3><p>Weka krimu ya Sumifun kwenye sehemu inayouma. Paka kwa urahisi, usisuguwe sana.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><h3>Subiri Dakika 3-5</h3><p>Fomula inachukua ndani haraka. <strong>Ndani ya dakika 3-5 maumivu yote yanaondoka kabisa!</strong></p><div class="warn"><i class="fas fa-check-circle"></i> Hapana kuwaka sana — poza ya kawaida tu</div></div></div>
+      <div class="step"><div class="step-num">4</div><div><h3>Tumia Kila Siku</h3><p>Kwa matokeo bora, tumia mara 2-3 kwa siku. Endelea kwa wiki 2-4 kwa matokeo ya kudumu.</p></div></div>
+    </div>
+    <div class="lifestyle-img">
+      <img src="https://z-cdn-media.chatglm.cn/files/5a2efd31-3060-4e7f-8917-31947f4d337d.png?auth_key=1877912342-6e09553ad5e94d3ab30fe311f69bec92-0-484d1a1e6f335625aea177ce9de26d3f" alt="Stay Active Anywhere - Sumifun Bee Venom">
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="beforeafter" id="mabadiliko">
+  <div class="container">
+    <div class="section-tag">Mabadiliko</div>
+    <h2>Kutoka Maumivu kwenda Uhuru</h2>
+    <p class="sub">Wateja wengi wanaripoti mabadiliko makubwa ndani ya wiki ya kwanza ya matumizi.</p>
+    <div class="ba-layout">
+      <div class="ba-col before-col">
+        <img src="https://z-cdn-media.chatglm.cn/files/e3bac4bf-c94e-452a-b21c-162d14a6d98b.png?auth_key=1877900094-9a8f16fb00054b79b642fff36c07a369-0-08c9fad831f505c887cfced9dd3363eb" alt="Kabla">
+        <div class="ba-label">KABLA</div>
+        <div class="ba-icon"><i class="fas fa-xmark"></i></div>
+      </div>
+      <div class="ba-col after-col">
+        <img src="https://z-cdn-media.chatglm.cn/files/464e3981-79dd-4984-b3bd-1499437f740b.png?auth_key=1877900094-3f842d491eaa4ba78c07a54d97189f89-0-778afefa3da3a453fcc841c44bf31fcb" alt="Baada">
+        <div class="ba-label">BAADA</div>
+        <div class="ba-icon"><i class="fas fa-check"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="ushahidi">
+  <div class="container">
+    <div class="section-tag">Ushahidi</div>
+    <h2>Wateja Wanasema Nini?</h2>
+    <p class="sub">Elfu za Watanzania wamejaribu Sumifun — hapa kuna baadhi ya maoni yao.</p>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="test-text">"Nilikuwa na maumivu ya mgongo kwa miaka 3. Baada ya wiki 2 za kutumia Sumifun, maumivu yamepungua sana. Sasa ninaweza kufanya kazi bila shida."</p>
+        <div class="test-author"><div class="test-avatar">MJ</div><div><div class="test-name">Mama Janeth</div><div class="test-loc">Dar es Salaam</div></div></div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="test-text">"Magoti yangu yalikuwa yakiniwaumia hasa asubuhi. Ndani ya dakika 5 baada ya kupaka, maumivu yanaondoka. Nimeagiza mara 3 tayari."</p>
+        <div class="test-author"><div class="test-avatar">PJ</div><div><div class="test-name">Peter Juma</div><div class="test-loc">Mwanza</div></div></div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i></div>
+        <p class="test-text">"Niliagua kwa shaka mwanzoni lakini nilijaribu. Sijui ni kwa nini silijaribu mapema! Delivery ilifika haraka na krimu inafanya kazi kweli."</p>
+        <div class="test-author"><div class="test-avatar">AH</div><div><div class="test-name">Ashura Hassan</div><div class="test-loc">Arusha</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="maswali">
+  <div class="container">
+    <div class="section-tag">Maswali</div>
+    <h2>Maswali Yanayoulizwa Mara kwa Mara</h2>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">Je, Sumifun ina madhara yoyote?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Hapana. Sumifun imeundwa kwa viungo vya asili 100% — sumu ya nyuki, ginger, na menthol. Hauna kemikali kali na haina madhara yoyote kwa binadamu wakati inatumiwa kwa mujibu wa maagizo. Walakini, ikiwa una mzio wa bidhaa za nyuki, wasiliana na daktari wako kwanza.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Muda gani maumivu yanapungua?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Wateja wengi wanaripoti kupungua kwa maumivu ndani ya dakika 3-5 baada ya kupaka. Kwa matokeo ya kudumu, tumia kwa wiki 2-4 kwa mpango wa mara 2-3 kwa siku.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Je, naweza kutumia wakati wa ujauzito au kunyonyesha?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Tafadhali wasiliana na daktari wako kabla ya kutumia ikiwa ujauzito au unanyonyesha. Ingawa viungo ni vya asili, ni bora kuwa na ushauri wa kitaalamu.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Delivery inachukua muda gani?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Delivery ni BURE popote ndani ya Tanzania. Kwa Dar es Salaam, order inafika ndani ya saa 24. Kwa mikoa mingine, saa 1-3 za kazi. Tunatumia kampuni za usafiri zinazojulikana.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Je, nalipia wakati wa kuagiza au wakati wa kupokea?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Malipo yanafanywa wakati wa ku Pokea bidhaa (COD — Cash on Delivery). Huna haja ya kulipa mtandaoni. Piga simu tu kuweka order, na lipa wakati bidhaa zikipo mikononi mwako.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="order-section" id="order">
+  <div class="container">
+    <div class="section-tag" style="justify-content:center;">Agiza Sasa</div>
+    <h2 style="text-align:center;">Weka Order Yako Leo</h2>
+    <p class="sub" style="text-align:center;margin:0 auto 1.8rem;">Jaza fomu hii na order yako itatumwa moja kwa moja kwenye WhatsApp.</p>
+    <div class="order-wrap">
+      <form class="order-form" id="orderForm" novalidate>
+        <h3>Fomu ya Agizo</h3>
+        <div class="of-sub">Jaza taarifa zako zote — tutakupigia simu kuthibitisha order.</div>
+        <div class="form-group">
+          <label>Jina Kamili <span class="req">*</span></label>
+          <input type="text" id="fname" placeholder="Andika jina lako kamili" required>
+          <div class="form-error" id="fnameErr">Tafadhali andika jina lako kamili</div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Namba ya Simu <span class="req">*</span></label>
+            <input type="tel" id="fphone" placeholder="0768 799 110" required>
+            <div class="form-error" id="fphoneErr">Andika namba sahihi ya simu</div>
+          </div>
+          <div class="form-group">
+            <label>Idadi <span class="req">*</span></label>
+            <div class="qty-display">
+              <div class="qty-controls">
+                <button type="button" class="qty-btn" id="qtyMinus">-</button>
+                <input type="text" class="qty-val" id="qtyVal" value="1" readonly>
+                <button type="button" class="qty-btn" id="qtyPlus">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Mahali / Mkoa <span class="req">*</span></label>
+          <select id="fregion" required>
+            <option value="">Chagua Mkoa wako...</option>
+            <option>Dar es Salaam</option><option>Dodoma</option><option>Arusha</option><option>Mwanza</option><option>Mbeya</option><option>Morogoro</option><option>Tanga</option><option>Zanzibar</option><option>Kilimanjaro</option><option>Iringa</option><option>Kagera</option><option>Kigoma</option><option>Lindi</option><option>Mara</option><option>Mtwara</option><option>Pwani</option><option>Rukwa</option><option>Ruvuma</option><option>Shinyanga</option><option>Singida</option><option>Tabora</option><option>Katavi</option><option>Geita</option><option>Njombe</option><option>Simiyu</option><option>Songwe</option>
+          </select>
+          <div class="form-error" id="fregionErr">Tafadhali chagua mkoa wako</div>
+        </div>
+        <div class="form-group">
+          <label>Anwani Kamili</label>
+          <input type="text" id="faddress" placeholder="Street, eneo, au maagizo ya kupeleka">
+        </div>
+        <div class="order-summary">
+          <div class="os-row"><span class="os-label">Bei ya kila bidhaa:</span><span class="os-val">77,000 TSH</span></div>
+          <div class="os-row"><span class="os-label">Idadi:</span><span class="os-val" id="osQty">x1</span></div>
+          <div class="os-row"><span class="os-label">Delivery:</span><span class="os-val os-del">BURE</span></div>
+          <div class="os-row total"><span class="os-label">Jumla:</span><span class="os-val" id="osTotal">77,000 TSH</span></div>
+        </div>
+        <button type="submit" class="submit-btn wa" id="submitBtn"><i class="fab fa-whatsapp"></i> TUMA ORDER KWENYE WHATSAPP</button>
+        <p class="form-disclaimer"><i class="fas fa-lock" style="margin-right:.3rem"></i>Maoni yako ni salama. Tutakupigia simu kuthibitisha order kabla ya kutuma.</p>
+      </form>
+      <div class="order-side">
+        <img src="https://z-cdn-media.chatglm.cn/files/627813a6-91a1-4bc8-9aad-0d1c9acd07ee.png?auth_key=1877900094-dd5be4ab65db402eaa83b2ce388db3c7-0-d5f8148cfb976d5184c9ba4492daeb93" alt="Sumifun Product">
+        <div class="side-phones">
+          <a href="tel:0768799110" class="side-phone"><i class="fas fa-phone"></i><div><div class="sp-num">0768 799 110</div><div class="sp-label">Piga simu sasa</div></div></a>
+          <a href="tel:0791169110" class="side-phone"><i class="fas fa-phone"></i><div><div class="sp-num">0791 169 110</div><div class="sp-label">Namba ya mbadala</div></div></a>
+          <a href="https://wa.me/255768799110?text=Nimeona%20ad%20ya%20Sumifun%20Bee%20Venom%20naomba%20kuagiza" class="side-phone" target="_blank"><i class="fab fa-whatsapp"></i><div><div class="sp-num">WhatsApp</div><div class="sp-label">Andika ujumbe moja kwa moja</div></div></a>
+        </div>
+        <div class="side-trust"><i class="fas fa-shield-halved"></i> Malipo baada ya kupokea (COD) — Salama 100%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="f-logo">SUMIFUN Bee Venom</div>
+    <p>Product ya kiasili ya kupaka maumivu inayotengenezwa kwa sumu ya nyuki na mitishamba. Imedhibitishwa na kuaminika na watumiaji elfu nchini Tanzania.</p>
+    <p style="margin-top:.4rem;font-size:.65rem;color:rgba(255,248,231,.15);">Matokeo yanaweza kutofautiana. Sio mbadala wa matibabu ya kitibabu. Wasiliana na daktari wako ikiwa una mzio wa bidhaa za nyuki.</p>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTON — ANIMATED & PINNED -->
+<div class="wa-float-wrap" id="waFloatWrap">
+  <div class="wa-float-ring r1"></div>
+  <div class="wa-float-ring r2"></div>
+  <div class="wa-float-ring r3"></div>
+  <a href="#order" class="wa-float" id="waFloatBtn" aria-label="Weka Order Yako Sasa">
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa-float-badge">1</span>
+  </a>
+  <div class="wa-float-label" id="waFloatLabel">
+    <span class="label-line1">Weka Order Yako Sasa</span>
+    <span class="label-line2">Delivery BURE popote Tanzania</span>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== HERO CANVAS ===== */
+var hcv=document.getElementById('heroCv'),hx=hcv.getContext('2d');
+var HW,HH;
+function hresize(){HW=hcv.width=hcv.parentElement.offsetWidth;HH=hcv.height=hcv.parentElement.offsetHeight;}
+hresize();addEventListener('resize',hresize);
+var hmx=0,hmy=0;
+document.addEventListener('mousemove',function(e){var r=hcv.getBoundingClientRect();hmx=(e.clientX-r.left)/r.width-.5;hmy=(e.clientY-r.top)/r.height-.5;});
+document.addEventListener('touchmove',function(e){if(e.touches[0]){var r=hcv.getBoundingClientRect();hmx=(e.touches[0].clientX-r.left)/r.width-.5;hmy=(e.touches[0].clientY-r.top)/r.height-.5;}},{passive:true});
+
+function heroAnim(t){
+  hx.fillStyle='#060606';hx.fillRect(0,0,HW,HH);
+  var p=1+Math.sin(t*.001)*.15,r=Math.max(1,Math.min(HW,HH)*.45*p);
+  var g=hx.createRadialGradient(HW/2,HH*.4,0,HW/2,HH*.4,r);
+  g.addColorStop(0,'rgba(212,160,23,0.06)');g.addColorStop(1,'rgba(212,160,23,0)');
+  hx.fillStyle=g;hx.fillRect(0,0,HW,HH);
+  var s=35,sh=s*Math.sqrt(3),co=Math.ceil(HW/(s*1.5))+2,ro=Math.ceil(HH/sh)+2;
+  var px=hmx*10,py=hmy*10;
+  for(var c=-1;c<co;c++)for(var rr=-1;rr<ro;rr++){
+    var x=c*s*1.5+px,y=rr*sh+(c%2?sh/2:0)+py;
+    var d=Math.hypot(x-HW/2,y-HH/2),md=Math.hypot(HW,HH)/2;
+    var a=Math.max(0,.035-d/md*.025)+Math.sin(t*.001+d*.004)*.008;
+    if(a>.001){hx.beginPath();for(var i=0;i<6;i++){var an=Math.PI/3*i-Math.PI/6,hxp=x+s*.9*Math.cos(an),hyp=y+s*.9*Math.sin(an);i?hx.lineTo(hxp,hyp):hx.moveTo(hxp,hyp);}hx.closePath();hx.strokeStyle='rgba(212,160,23,'+Math.max(0,a)+')';hx.lineWidth=.5;hx.stroke();}
+  }
+  for(var i=0;i<30;i++){
+    var px2=(Math.sin(t*.0002+i*2.1)*HW*.4+HW/2+i*43)%HW;
+    var py2=(Math.cos(t*.0003+i*1.8)*HH*.3+HH/2+i*31)%HH;
+    var ps=Math.max(.5,1.2+Math.sin(t*.002+i)*.8);
+    var pa=.1+Math.sin(t*.001+i*4)*.06;
+    hx.beginPath();hx.arc(px2,py2,ps,0,Math.PI*2);hx.fillStyle='rgba(212,160,23,'+Math.max(0,pa)+')';hx.fill();
+  }
+  requestAnimationFrame(heroAnim);
+}
+requestAnimationFrame(heroAnim);
+
+/* ===== SOUND ===== */
+var SE=function(){this.ctx=null;this.mg=null;this.mut=true;this.ini=false;this.firstPlay=true;};
+SE.prototype.init=function(){if(this.ini)return;try{this.ctx=new(window.AudioContext||window.webkitAudioContext)();this.mg=this.ctx.createGain();this.mg.gain.value=0;this.mg.connect(this.ctx.destination);this.ini=true;}catch(e){}};
+SE.prototype.tog=function(){if(!this.ini)this.init();this.mut=!this.mut;this.mg.gain.linearRampToValueAtTime(this.mut?0:.15,this.ctx.currentTime+.3);return!this.mut;};
+SE.prototype.chord=function(){if(!this.ini||this.mut)return;if(this.firstPlay){this.firstPlay=false;}var c=this.ctx.currentTime;[261,329,392].forEach(function(f){var o=this.ctx.createOscillator(),g=this.ctx.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,c);g.gain.linearRampToValueAtTime(.06,c+1);g.gain.linearRampToValueAtTime(0,c+3);o.connect(g);g.connect(this.mg);o.start(c);o.stop(c+3);}.bind(this));};
+var snd=new SE();
+document.getElementById('navSnd').onclick=function(){var on=snd.tog();document.getElementById('navSnd').classList.toggle('mut',!on);document.getElementById('navSnd').innerHTML=on?'<i class="fas fa-volume-high"></i>':'<i class="fas fa-volume-xmark"></i>';if(on)snd.chord();};
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)snd.chord();});},{threshold:.3});
+document.querySelectorAll('section').forEach(function(s){obs.observe(s);});
+
+/* ===== FAQ ===== */
+document.querySelectorAll('.faq-q').forEach(function(q){q.onclick=function(){q.parentElement.classList.toggle('open');};});
+
+/* ===== QUANTITY ===== */
+var qty=1;
+function updateSummary(){document.getElementById('qtyVal').value=qty;document.getElementById('osQty').textContent='x'+qty;document.getElementById('osTotal').textContent=(qty*77000).toLocaleString()+' TSH';}
+document.getElementById('qtyMinus').onclick=function(){if(qty>1){qty--;updateSummary();}};
+document.getElementById('qtyPlus').onclick=function(){if(qty<20){qty++;updateSummary();}};
+
+/* ===== FORM ===== */
+document.getElementById('orderForm').onsubmit=function(e){
+  e.preventDefault();
+  var name=document.getElementById('fname').value.trim();
+  var phone=document.getElementById('fphone').value.trim();
+  var region=document.getElementById('fregion').value;
+  var address=document.getElementById('faddress').value.trim();
+  var valid=true;
+  document.querySelectorAll('.form-error').forEach(function(el){el.classList.remove('show');});
+  document.querySelectorAll('.form-group input, .form-group select').forEach(function(el){el.style.borderColor='rgba(255,255,255,.1)';});
+  if(!name){document.getElementById('fnameErr').classList.add('show');document.getElementById('fname').style.borderColor='var(--urgent)';valid=false;}
+  if(!phone||phone.replace(/\D/g,'').length<9){document.getElementById('fphoneErr').classList.add('show');document.getElementById('fphone').style.borderColor='var(--urgent)';valid=false;}
+  if(!region){document.getElementById('fregionErr').classList.add('show');document.getElementById('fregion').style.borderColor='var(--urgent)';valid=false;}
+  if(!valid){showToast('Tafadhali jaza sehemu zote zinazohitajika','err','fa-triangle-exclamation');return;}
+  var msg='🏥 *ORDER YA SUMIFUN BEE VENOM*\n\n👤 *Jina:* '+name+'\n📱 *Simu:* '+phone+'\n📍 *Mkoa:* '+region+(address?'\n🏠 *Anwani:* '+address:'')+'\n📦 *Idadi:* '+qty+' x bidhaa\n💰 *Jumla:* '+(qty*77000).toLocaleString()+' TSH\n🚚 *Delivery:* BURE\n\n---\nNdio, nataka kuagiza Sumifun Bee Venom Pain Relief Cream.';
+  var waUrl='https://wa.me/255768799110?text='+encodeURIComponent(msg);
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Inatuma...';
+  setTimeout(function(){window.open(waUrl,'_blank');btn.disabled=false;btn.innerHTML='<i class="fab fa-whatsapp"></i> TUMA ORDER KWENYE WHATSAPP';showToast('WhatsApp imefunguka! Andika ujumbe na tuma.','ok','fa-check-circle');},800);
+};
+document.querySelectorAll('#orderForm input, #orderForm select').forEach(function(el){
+  el.addEventListener('input',function(){el.style.borderColor='rgba(255,255,255,.1)';var errEl=el.parentElement.querySelector('.form-error');if(errEl)errEl.classList.remove('show');});
+});
+
+/* ===== TOAST ===== */
+var tTimer;
+function showToast(m,t,ic){t=t||'inf';ic=ic||'fa-circle-info';clearTimeout(tTimer);var e=document.getElementById('toast');e.innerHTML='<i class="fas '+ic+'"></i>'+m;e.className='toast show '+t;tTimer=setTimeout(function(){e.className='toast';},3500);}
+
+/* ===== SMOOTH SCROLL ===== */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){var target=document.querySelector(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}});
+});
+
+/* ===== FLOATING BUTTON ===== */
+var waFloatBtn=document.getElementById('waFloatBtn');
+var waFloatWrap=document.getElementById('waFloatWrap');
+var waFloatLabel=document.getElementById('waFloatLabel');
+waFloatBtn.addEventListener('click',function(e){
+  e.preventDefault();
+  var target=document.querySelector(this.getAttribute('href'));
+  if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}
+  var ripple=document.createElement('span');
+  ripple.classList.add('ripple-ring');
+  this.appendChild(ripple);
+  setTimeout(function(){ripple.remove();},700);
+  var badge=this.querySelector('.wa-float-badge');
+  if(badge){badge.style.transition='all .3s ease';badge.style.transform='scale(0)';setTimeout(function(){badge.remove();},300);}
+});
+var labelInterval;
+function startLabelCycle(){labelInterval=setInterval(function(){waFloatLabel.classList.add('show-label');setTimeout(function(){waFloatLabel.classList.remove('show-label');},3500);},8000);}
+setTimeout(function(){waFloatLabel.classList.add('show-label');setTimeout(function(){waFloatLabel.classList.remove('show-label');startLabelCycle();},3500);},3000);
+var orderSection=document.getElementById('order');
+var floatObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){waFloatWrap.classList.add('hidden-float');clearInterval(labelInterval);}else{waFloatWrap.classList.remove('hidden-float');startLabelCycle();}});},{threshold:0.15});
+floatObs.observe(orderSection);
+var scrollAttention=false;
+window.addEventListener('scroll',function(){if(!scrollAttention){var heroBottom=document.getElementById('home').offsetHeight;if(window.scrollY>heroBottom){scrollAttention=true;waFloatBtn.style.transition='transform .15s ease';waFloatBtn.style.transform='scale(1.25)';setTimeout(function(){waFloatBtn.style.transform='scale(1)';},150);setTimeout(function(){waFloatBtn.style.transform='scale(1.15)';},300);setTimeout(function(){waFloatBtn.style.transform='';waFloatBtn.style.transition='';},450);}}},{passive:true});
+</script>
+</body>
+</html>
