@@ -6,6 +6,26 @@
 <title>Sumifun Bee Venom — Dawa ya Kupaka Maumivu | 77,000 TSH</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Meta Pixel Base Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '938245989115162');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=938245989115162&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Base Code -->
+
 <style>
 :root{--bg:#060606;--bg2:#0d0d0d;--bg3:#141414;--gold:#D4A017;--gl:#F5D060;--gd:#8B6914;--cream:#FFF8E7;--red:#C0392B;--green:#27AE60;--urgent:#FF3B30;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -324,8 +344,8 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
         <div class="free-del"><i class="fas fa-truck-fast"></i><div><div>Delivery BURE</div><div class="fd-sm">Popote ndani ya Tanzania</div></div></div>
       </div>
       <div class="btns">
-        <a href="#order" class="btn-order"><i class="fas fa-shopping-bag"></i> Weka Order Sasa</a>
-        <a href="https://wa.me/255795902909?text=Nimeona%20ad%20ya%20Sumifun%20Bee%20Venom%20naomba%20kuagiza" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Piga Simu</a>
+        <a href="#order" class="btn-order" id="heroOrderBtn"><i class="fas fa-shopping-bag"></i> Weka Order Sasa</a>
+        <a href="https://wa.me/255795902909?text=Nimeona%20ad%20ya%20Sumifun%20Bee%20Venom%20naomba%20kuagiza" class="btn-wa" id="heroWaBtn" target="_blank"><i class="fab fa-whatsapp"></i> Piga Simu</a>
       </div>
     </div>
     <div class="img-col">
@@ -685,7 +705,80 @@ document.querySelectorAll('section').forEach(function(s){obs.observe(s);});
 /* ===== FAQ ===== */
 document.querySelectorAll('.faq-q').forEach(function(q){q.onclick=function(){q.parentElement.classList.toggle('open');};});
 
-/* ===== FORM ===== */
+/* ====================================================================
+   META PIXEL — CONVERSION TRACKING EVENTS
+   ==================================================================== */
+
+/* --- Track ViewContent when the Product section becomes visible --- */
+var productSection = document.getElementById('bidhaa');
+var viewContentObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      fbq('track', 'ViewContent', {
+        content_name: 'Sumifun Bee Venom Pain Relief Cream',
+        content_category: 'Pain Relief',
+        content_ids: ['SBV-55G'],
+        content_type: 'product',
+        value: 77000,
+        currency: 'TZS'
+      });
+      viewContentObs.unobserve(productSection); /* fire only once */
+    }
+  });
+}, { threshold: 0.3 });
+viewContentObs.observe(productSection);
+
+/* --- Track InitiateCheckout when user clicks "Weka Order Sasa" hero button --- */
+document.getElementById('heroOrderBtn').addEventListener('click', function() {
+  fbq('track', 'InitiateCheckout', {
+    content_name: 'Sumifun Bee Venom Pain Relief Cream',
+    content_category: 'Pain Relief',
+    content_ids: ['SBV-55G'],
+    content_type: 'product',
+    value: PRICES[qty].price,
+    currency: 'TZS',
+    num_items: qty
+  });
+});
+
+/* --- Track InitiateCheckout when user clicks the floating WhatsApp button --- */
+document.getElementById('waFloatBtn').addEventListener('click', function() {
+  fbq('track', 'InitiateCheckout', {
+    content_name: 'Sumifun Bee Venom Pain Relief Cream',
+    content_category: 'Pain Relief',
+    content_ids: ['SBV-55G'],
+    content_type: 'product',
+    value: PRICES[qty].price,
+    currency: 'TZS',
+    num_items: qty
+  });
+});
+
+/* --- Track Contact when user clicks WhatsApp links (nav + hero) --- */
+document.querySelectorAll('a[href*="wa.me"]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    fbq('track', 'Contact');
+  });
+});
+
+/* --- Track AddToCart when user changes package selection --- */
+document.querySelectorAll('.pkg-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    var selectedQty = parseInt(card.dataset.qty);
+    fbq('track', 'AddToCart', {
+      content_name: 'Sumifun Bee Venom Pain Relief Cream',
+      content_ids: ['SBV-55G'],
+      content_type: 'product',
+      value: PRICES[selectedQty].price,
+      currency: 'TZS',
+      num_items: selectedQty
+    });
+  });
+});
+
+/* ==================================================================== */
+
+/* ===== FORM SUBMIT — with Meta Pixel Purchase/Lead event ===== */
 document.getElementById('orderForm').onsubmit=function(e){
   e.preventDefault();
   var name=document.getElementById('fname').value.trim();
@@ -699,7 +792,27 @@ document.getElementById('orderForm').onsubmit=function(e){
   if(!phone||phone.replace(/\D/g,'').length<9){document.getElementById('fphoneErr').classList.add('show');document.getElementById('fphone').style.borderColor='var(--urgent)';valid=false;}
   if(!region){document.getElementById('fregionErr').classList.add('show');document.getElementById('fregion').style.borderColor='var(--urgent)';valid=false;}
   if(!valid){showToast('Tafadhali jaza sehemu zote zinazohitajika','err','fa-triangle-exclamation');return;}
+
   var p=PRICES[qty];
+
+  /* ===== META PIXEL: Track Lead event on successful form submission ===== */
+  fbq('track', 'Lead', {
+    content_name: 'Sumifun Bee Venom Pain Relief Cream',
+    content_category: 'Pain Relief',
+    value: p.price,
+    currency: 'TZS'
+  });
+
+  /* ===== META PIXEL: Track Purchase event (order intent) ===== */
+  fbq('track', 'Purchase', {
+    content_name: 'Sumifun Bee Venom Pain Relief Cream',
+    content_ids: ['SBV-55G'],
+    content_type: 'product',
+    value: p.price,
+    currency: 'TZS',
+    num_items: qty
+  });
+
   var msg='🏥 *ORDER YA SUMIFUN BEE VENOM*\n\n👤 *Jina:* '+name+'\n📱 *Simu:* '+phone+'\n📍 *Mkoa:* '+region+(address?'\n🏠 *Anwani:* '+address:'')+'\n📦 *Kiasi:* '+qty+'x bidhaa\n💰 *Bei ya Kawaida:* '+p.old.toLocaleString()+' TSH\n🏷️ *Bei Yako:* '+p.price.toLocaleString()+' TSH'+(p.save>0?'\n✅ *Unaokoa:* '+p.save.toLocaleString()+' TSH':'')+'\n🚚 *Delivery:* BURE\n\n---\nNdio, nataka kuagiza Sumifun Bee Venom Pain Relief Cream.';
   var waUrl='https://wa.me/255795902909?text='+encodeURIComponent(msg);
   var btn=document.getElementById('submitBtn');
@@ -744,4 +857,4 @@ var scrollAttention=false;
 window.addEventListener('scroll',function(){if(!scrollAttention){var heroBottom=document.getElementById('home').offsetHeight;if(window.scrollY>heroBottom){scrollAttention=true;waFloatBtn.style.transition='transform .15s ease';waFloatBtn.style.transform='scale(1.25)';setTimeout(function(){waFloatBtn.style.transform='scale(1)';},150);setTimeout(function(){waFloatBtn.style.transform='scale(1.15)';},300);setTimeout(function(){waFloatBtn.style.transform='';waFloatBtn.style.transition='';},450);}}},{passive:true});
 </script>
 </body>
-</html>
+</html
