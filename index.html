@@ -235,6 +235,19 @@ section p.sub{font-size:clamp(.8rem,1.3vw,.95rem);color:rgba(255,248,231,.45);li
 .submit-btn.wa{background:linear-gradient(135deg,var(--green),#1E8449);color:#fff;box-shadow:0 4px 25px rgba(39,174,96,.3);}
 .submit-btn.wa:hover{box-shadow:0 4px 40px rgba(39,174,96,.5);transform:translateY(-2px);}
 .submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+
+/* ===== STICKY CTA BAR ===== */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:99998;background:rgba(6,6,6,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:2px solid rgba(39,174,96,.3);padding:.7rem 1rem;display:flex;align-items:center;justify-content:center;gap:.8rem;transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);pointer-events:none;}
+.sticky-cta.visible{transform:translateY(0);pointer-events:auto;}
+.sticky-cta-inner{display:flex;align-items:center;justify-content:center;gap:.8rem;max-width:700px;width:100%;}
+.sticky-cta-price{display:flex;flex-direction:column;align-items:flex-end;min-width:0;}
+.sticky-cta-price .scp-old{font-size:.65rem;color:rgba(255,248,231,.25);text-decoration:line-through;}
+.sticky-cta-price .scp-new{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--gl);line-height:1.1;}
+.sticky-cta-price .scp-del{font-size:.6rem;color:var(--green);font-weight:600;}
+.sticky-cta-btn{flex:1;max-width:400px;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(135deg,var(--green),#1E8449);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.9rem;padding:.75rem 1.2rem;border:none;border-radius:60px;cursor:pointer;text-decoration:none;transition:all .3s ease;box-shadow:0 4px 25px rgba(39,174,96,.35);white-space:nowrap;}
+.sticky-cta-btn:hover{box-shadow:0 4px 40px rgba(39,174,96,.55);transform:translateY(-2px);}
+.sticky-cta-btn i{font-size:.95rem;}
+.sticky-cta .pulse-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--urgent);animation:bl 1s infinite;margin-right:.3rem;vertical-align:middle;}
 .form-disclaimer{font-size:.65rem;color:rgba(255,248,231,.2);margin-top:.8rem;line-height:1.5;text-align:center;}
 
 /* Order sidebar */
@@ -302,6 +315,10 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
   .pkg-card{padding:.6rem .3rem;}.pkg-card .pkg-qty{font-size:1.1rem;}.pkg-card .pkg-price{font-size:.85rem;}.pkg-card .pkg-old{font-size:.6rem;}
   .wa-float{width:56px;height:56px;font-size:1.4rem;}.wa-float-ring.r1,.wa-float-ring.r2,.wa-float-ring.r3{width:60px;height:60px;}.wa-float-badge{width:20px;height:20px;font-size:.55rem;top:-3px;right:-3px;}.wa-float-label{display:none;}.wa-float-wrap{bottom:1rem;right:1rem;}
   .stock-banner span{font-size:.72rem;}
+  .sticky-cta{padding:.5rem .8rem;gap:.5rem;}
+  .sticky-cta-price .scp-new{font-size:.95rem;}
+  .sticky-cta-btn{font-size:.78rem;padding:.65rem 1rem;}
+  .wa-float-wrap{bottom:4.5rem;}
 }
 @media(min-width:481px) and (max-width:768px){
   .hero .content{flex-direction:column;text-align:center;}.hero .text{min-width:0;}.hero .desc{margin:0 auto 1.2rem;}.hero .price-row{justify-content:center;}.hero .btns{justify-content:center;}.hero .img-col{min-width:0;}
@@ -591,7 +608,7 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
           <div class="os-row total"><span class="os-label">Jumla:</span><span class="os-val" id="osTotal">77,000 TSH</span></div>
         </div>
 
-        <button type="submit" class="submit-btn wa" id="submitBtn"><i class="fab fa-whatsapp"></i> TUMA ORDER KWENYE WHATSAPP</button>
+        <button type="submit" class="submit-btn wa" id="submitBtn"><i class="fas fa-paper-plane"></i> TUMA ORDER YAKO SASA</button>
         <p class="form-disclaimer"><i class="fas fa-lock" style="margin-right:.3rem"></i>Maoni yako ni salama. Tutakupigia simu kuthibitisha order kabla ya kutuma.</p>
       </form>
 
@@ -622,13 +639,25 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
   <div class="wa-float-ring r1"></div>
   <div class="wa-float-ring r2"></div>
   <div class="wa-float-ring r3"></div>
-  <a href="#order" class="wa-float" id="waFloatBtn" aria-label="Weka Order Yako Sasa">
+  <a href="https://wa.me/255795902909?text=Nimeona%20ad%20ya%20Sumifun%20Bee%20Venom%20naomba%20kuagiza" class="wa-float" id="waFloatBtn" target="_blank" aria-label="WhatsApp 0795 902 909">
     <i class="fab fa-whatsapp"></i>
     <span class="wa-float-badge">1</span>
   </a>
   <div class="wa-float-label" id="waFloatLabel">
-    <span class="label-line1">Weka Order Yako Sasa</span>
-    <span class="label-line2">Delivery BURE popote Tanzania</span>
+    <span class="label-line1">WhatsApp: 0795 902 909</span>
+    <span class="label-line2">Andika ujumbe moja kwa moja</span>
+  </div>
+</div>
+
+<!-- STICKY CTA BAR -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-price">
+      <span class="scp-old" id="scpOld">120,000 TSH</span>
+      <span class="scp-new" id="scpNew">77,000 TSH</span>
+      <span class="scp-del"><i class="fas fa-truck-fast" style="font-size:.55rem"></i> Delivery BURE</span>
+    </div>
+    <button class="sticky-cta-btn" id="stickyCtaBtn"><span class="pulse-dot"></span><i class="fas fa-paper-plane"></i> TUMA ORDER YAKO SASA</button>
   </div>
 </div>
 
@@ -817,7 +846,7 @@ document.getElementById('orderForm').onsubmit=function(e){
   var waUrl='https://wa.me/255795902909?text='+encodeURIComponent(msg);
   var btn=document.getElementById('submitBtn');
   btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Inatuma...';
-  setTimeout(function(){window.open(waUrl,'_blank');btn.disabled=false;btn.innerHTML='<i class="fab fa-whatsapp"></i> TUMA ORDER KWENYE WHATSAPP';showToast('WhatsApp imefunguka! Andika ujumbe na tuma.','ok','fa-check-circle');},800);
+  setTimeout(function(){window.open(waUrl,'_blank');btn.disabled=false;btn.innerHTML='<i class="fas fa-paper-plane"></i> TUMA ORDER YAKO SASA';showToast('WhatsApp imefunguka! Andika ujumbe na tuma.','ok','fa-check-circle');},800);
 };
 document.querySelectorAll('#orderForm input, #orderForm select').forEach(function(el){
   el.addEventListener('input',function(){el.style.borderColor='rgba(255,255,255,.1)';var errEl=el.parentElement.querySelector('.form-error');if(errEl)errEl.classList.remove('show');});
@@ -826,6 +855,52 @@ document.querySelectorAll('#orderForm input, #orderForm select').forEach(functio
 /* ===== TOAST ===== */
 var tTimer;
 function showToast(m,t,ic){t=t||'inf';ic=ic||'fa-circle-info';clearTimeout(tTimer);var e=document.getElementById('toast');e.innerHTML='<i class="fas '+ic+'"></i>'+m;e.className='toast show '+t;tTimer=setTimeout(function(){e.className='toast';},3500);}
+
+/* ===== STICKY CTA BAR ===== */
+var stickyCta=document.getElementById('stickyCta');
+var stickyCtaBtn=document.getElementById('stickyCtaBtn');
+var orderFormEl=document.getElementById('orderForm');
+var stickyCtaVisible=false;
+
+/* Update sticky bar prices when package changes */
+function updateStickyPrice(){
+  var p=PRICES[qty];
+  document.getElementById('scpOld').textContent=p.old.toLocaleString()+' TSH';
+  document.getElementById('scpNew').textContent=p.price.toLocaleString()+' TSH';
+}
+updateStickyPrice();
+
+/* Show/hide sticky bar based on scroll position */
+var heroEl=document.getElementById('home');
+function checkStickyVisibility(){
+  var heroBottom=heroEl.offsetHeight;
+  var orderTop=orderFormEl.getBoundingClientRect().top;
+  var orderVisible=orderTop<window.innerHeight;
+  var scrolledPastHero=window.scrollY>heroBottom;
+  if(scrolledPastHero && !orderVisible){
+    if(!stickyCtaVisible){stickyCta.classList.add('visible');stickyCtaVisible=true;}
+  }else{
+    if(stickyCtaVisible){stickyCta.classList.remove('visible');stickyCtaVisible=false;}
+  }
+}
+window.addEventListener('scroll',checkStickyVisibility,{passive:true});
+window.addEventListener('resize',checkStickyVisibility,{passive:true});
+
+/* Sticky CTA button clicks -> scroll to order form and focus first input */
+stickyCtaBtn.addEventListener('click',function(){
+  orderFormEl.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(function(){document.getElementById('fname').focus();},600);
+});
+
+/* Also update sticky price when package is selected */
+var origSelectPkg=selectPkg;
+selectPkg=function(el){
+  document.querySelectorAll('.pkg-card').forEach(function(c){c.classList.remove('active');});
+  el.classList.add('active');
+  qty=parseInt(el.dataset.qty);
+  updateSummary();
+  updateStickyPrice();
+};
 
 /* ===== SMOOTH SCROLL ===== */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
@@ -837,9 +912,7 @@ var waFloatBtn=document.getElementById('waFloatBtn');
 var waFloatWrap=document.getElementById('waFloatWrap');
 var waFloatLabel=document.getElementById('waFloatLabel');
 waFloatBtn.addEventListener('click',function(e){
-  e.preventDefault();
-  var target=document.querySelector(this.getAttribute('href'));
-  if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}
+  /* Ripple effect on click */
   var ripple=document.createElement('span');
   ripple.classList.add('ripple-ring');
   this.appendChild(ripple);
@@ -857,4 +930,4 @@ var scrollAttention=false;
 window.addEventListener('scroll',function(){if(!scrollAttention){var heroBottom=document.getElementById('home').offsetHeight;if(window.scrollY>heroBottom){scrollAttention=true;waFloatBtn.style.transition='transform .15s ease';waFloatBtn.style.transform='scale(1.25)';setTimeout(function(){waFloatBtn.style.transform='scale(1)';},150);setTimeout(function(){waFloatBtn.style.transform='scale(1.15)';},300);setTimeout(function(){waFloatBtn.style.transform='';waFloatBtn.style.transition='';},450);}}},{passive:true});
 </script>
 </body>
-</html
+</html>
